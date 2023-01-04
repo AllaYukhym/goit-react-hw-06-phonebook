@@ -14,9 +14,9 @@ export const Filter = () => {
     console.log('IT is value: ', value);
     // setFilter(value);
     dispatch(changeFilter(value));
-    console.log('IT is filter: ', filter);
   };
 
+  console.log('IT is filter: ', filter);
   return (
     <>
       <Label>

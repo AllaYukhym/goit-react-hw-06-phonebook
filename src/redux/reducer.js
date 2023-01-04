@@ -1,30 +1,24 @@
-const initialState = {
-  contacts: [],
-  filter: '',
-};
+const contactsInitialState = [];
 
-export const rootReducer = (state = initialState, action) => {
-  console.log('state: ', state);
+export const contactsReducer = (state = contactsInitialState, action) => {
   switch (action.type) {
     case 'contacts/addContact': {
-      return {
-        ...state,
-        contacts: [...state.contacts, action.playload],
-      };
+      return [...state, action.payload];
     }
     case 'contacts/deleteContact': {
-      return {
-        ...state,
-        contacts: state.contacts.filter(
-          contact => contact.id !== action.playload
-        ),
-      };
+      return state.filter(contact => contact.id !== action.payload);
     }
+    default:
+      return state;
+  }
+};
+
+const filterInitialState = '';
+
+export const filterReducer = (state = filterInitialState, action) => {
+  switch (action.type) {
     case 'filter/changeFilter': {
-      return {
-        ...state,
-        filter: action.playload,
-      };
+      return action.payload;
     }
     default:
       return state;
