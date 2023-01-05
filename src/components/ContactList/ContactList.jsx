@@ -7,6 +7,7 @@ import { List } from './ContactList.styled.js';
 export const ContactList = () => {
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
+
   console.log(' It is filter in LIst: ', filter);
 
   const getFilteredContacts = () => {

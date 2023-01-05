@@ -5,14 +5,13 @@ import PropTypes from 'prop-types';
 import { Label, Input } from './Filter.styled';
 
 export const Filter = () => {
-  const filter = useSelector(getFilter);
   const dispatch = useDispatch();
+  const filter = useSelector(getFilter);
 
   const changeHandleFilter = event => {
     console.log(' IT is event: ', event);
     const { value } = event.currentTarget;
     console.log('IT is value: ', value);
-    // setFilter(value);
     dispatch(changeFilter(value));
   };
 
@@ -27,6 +26,6 @@ export const Filter = () => {
   );
 };
 
-// Filter.propTypes = {
-//   onChange: PropTypes.func,
-// };
+Filter.propTypes = {
+  onChange: PropTypes.func,
+};

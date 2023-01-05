@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-
 import { Container, Title, Subtitle } from './App.styled';
 import { Form } from '../ContactForm/ContactForm';
 import { Filter } from '../Filter/Filter';
