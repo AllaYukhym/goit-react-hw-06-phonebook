@@ -92,5 +92,4 @@ Form.propTypes = {
       number: PropTypes.string.isRequired,
     })
   ),
-  onSubmit: PropTypes.func,
 };

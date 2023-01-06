@@ -1,7 +1,7 @@
+import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { changeFilter } from 'redux/filterSlice';
 import { getFilter } from 'redux/selectors';
-import PropTypes from 'prop-types';
 import { Label, Input } from './Filter.styled';
 
 export const Filter = () => {
@@ -9,13 +9,11 @@ export const Filter = () => {
   const filter = useSelector(getFilter);
 
   const changeHandleFilter = event => {
-    console.log(' IT is event: ', event);
     const { value } = event.currentTarget;
-    console.log('IT is value: ', value);
+
     dispatch(changeFilter(value));
   };
 
-  console.log('IT is filter: ', filter);
   return (
     <>
       <Label>
@@ -27,5 +25,5 @@ export const Filter = () => {
 };
 
 Filter.propTypes = {
-  onChange: PropTypes.func,
+  filter: PropTypes.string,
 };

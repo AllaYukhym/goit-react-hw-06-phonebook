@@ -1,14 +1,12 @@
+import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { getContacts, getFilter } from 'redux/selectors.js';
-import PropTypes from 'prop-types';
 import { ContactListItem } from '../ContactListItem/ContactListItem.jsx';
 import { List } from './ContactList.styled.js';
 
 export const ContactList = () => {
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
-
-  console.log(' It is filter in LIst: ', filter);
 
   const getFilteredContacts = () => {
     const normalizedFilter = filter.toLowerCase();
@@ -35,4 +33,15 @@ export const ContactList = () => {
           ))}
     </List>
   );
+};
+
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ),
+  filter: PropTypes.string,
 };
